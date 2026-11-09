@@ -27,7 +27,7 @@
       <a href="#cach-hoat-dong">Cách hoạt động</a>
       <a href="#cai-dat">Cách cài</a>
       <a href="#hoi-dap">Câu hỏi</a>
-      <a class="nav-dashboard" href="https://localhost:8446/login" data-server-auth aria-haspopup="dialog">Đăng nhập</a>
+      <a class="nav-dashboard" href="https://localhost:8446/login">Đăng nhập</a>
       <a class="nav-mobile-download" href="./KidSafe-Setup-x64.exe" download>Tải cho Windows</a>
     </nav>
     <a class="download-button nav-download" href="./KidSafe-Setup-x64.exe" download>
@@ -123,12 +123,12 @@
             <span class="step-number" aria-hidden="true">2</span>
             <div><h3>Mở bảng điều khiển phụ huynh</h3>
               
-              <p>Mở máy chủ KidSafe của gia đình để đăng ký hoặc đăng nhập. Nếu dùng máy khác, hãy kết nối cùng Wi-Fi và nhập địa chỉ LAN của máy chủ.</p>
+              <p>Mở trang đăng ký hoặc đăng nhập khi máy chủ KidSafe đang chạy. Nếu truy cập từ máy khác, hãy dùng địa chỉ LAN của máy chủ.</p>
               
             </div>
             <div class="step-action account-actions">
-              <a class="download-button account-create" href="https://localhost:8446/register" data-server-auth aria-haspopup="dialog">Tạo tài khoản <span aria-hidden="true">→</span></a>
-              <a class="download-button account-login" href="https://localhost:8446/login" data-server-auth aria-haspopup="dialog">Đăng nhập <span aria-hidden="true">→</span></a>
+              <a class="download-button account-create" href="https://localhost:8446/register">Tạo tài khoản <span aria-hidden="true">→</span></a>
+              <a class="download-button account-login" href="https://localhost:8446/login">Đăng nhập <span aria-hidden="true">→</span></a>
             </div>
           </article></li>
           <li><article class="step-card step-card-complete mesh-surface" data-mesh="step">
@@ -178,20 +178,6 @@
 </a>
     </div>
   </footer>
-  
-  <dialog class="server-login-dialog" aria-labelledby="server-login-heading" aria-describedby="server-login-help">
-    <h2 id="server-login-heading">Đăng nhập KidSafe</h2>
-    <p id="server-login-help">Dùng địa chỉ có sẵn trên máy chạy KidSafe. Nếu bạn đang dùng máy khác, nhập địa chỉ HTTPS của máy chủ trong mạng Wi-Fi.</p>
-    <form method="dialog">
-      <label for="server-address">Địa chỉ máy chủ</label>
-      <input id="server-address" type="url" inputmode="url" value="https://localhost:8446" autocomplete="off" spellcheck="false" required>
-      <div class="server-login-actions">
-        <button type="button" class="server-login-close">Đóng</button>
-        <button type="submit" class="download-button"><span class="server-auth-action">Mở đăng nhập</span> <span aria-hidden="true">→</span></button>
-      </div>
-    </form>
-  </dialog>
-  
   <dialog class="gallery-dialog" aria-labelledby="gallery-dialog-title" aria-describedby="gallery-dialog-description">
     <button class="gallery-close" type="button" aria-label="Đóng ảnh" autofocus>×</button>
     <button class="gallery-prev" type="button" aria-label="Ảnh trước">←</button>
