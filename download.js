@@ -47,6 +47,41 @@
     if (compactMenu.matches && wasInMenu) menuToggle.focus({preventScroll: true});
     else if (!compactMenu.matches && wasToggle) navigation.querySelector('nav a').focus({preventScroll: true});
   });
+  const serverLogin = document.querySelector('.server-login-dialog');
+  if (serverLogin && typeof serverLogin.showModal === 'function') {
+    const address = serverLogin.querySelector('input');
+    const heading = serverLogin.querySelector('h2');
+    const action = serverLogin.querySelector('.server-auth-action');
+    let authOpener;
+    document.querySelectorAll('[data-server-auth]').forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        authOpener = link;
+        const register = link.pathname === '/register';
+        heading.textContent = register ? 'Tạo tài khoản KidSafe' : 'Đăng nhập KidSafe';
+        action.textContent = register ? 'Mở đăng ký' : 'Mở đăng nhập';
+        serverLogin.showModal();
+      });
+    });
+    serverLogin.querySelector('.server-login-close').addEventListener('click', () => serverLogin.close());
+    serverLogin.addEventListener('close', () => {
+      const target = navigation.contains(authOpener) && compactMenu.matches ? menuToggle : authOpener;
+      target?.focus({preventScroll: true});
+    });
+    address.addEventListener('input', () => address.setCustomValidity(''));
+    serverLogin.querySelector('form').addEventListener('submit', event => {
+      event.preventDefault();
+      let server;
+      try { server = new URL(address.value); } catch {}
+      if (server?.protocol !== 'https:' || server.username || server.password) {
+        address.setCustomValidity('Nhập địa chỉ HTTPS của máy chủ KidSafe.');
+        address.reportValidity();
+        return;
+      }
+      const path = authOpener?.pathname === '/register' ? '/register' : '/login';
+      location.assign(new URL(path, server.origin));
+    });
+  }
   let inView = true;
   let queued = false;
   let active = null;

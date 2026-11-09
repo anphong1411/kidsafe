@@ -153,7 +153,7 @@ h3 { margin: 0; font-size: clamp(20px, 2.3vw, 32px); line-height: 1.15; letter-s
 .gallery-dialog { width: min(1200px, calc(100vw - 40px)); max-height: calc(100svh - 32px); padding: 60px 64px 28px; border: 0; border-radius: 22px; background: #101b25; color: white; }
 .gallery-dialog::backdrop { background: #081018ed; }
 .gallery-dialog[open] { display: grid; grid-template-columns: minmax(0, 1fr); }
-body:has(.gallery-dialog[open]) { overflow: hidden; }
+body:has(.gallery-dialog[open], .server-login-dialog[open]) { overflow: hidden; }
 .gallery-dialog figure { margin: 0; min-width: 0; }
 .gallery-image-stage { display: grid; place-items: center; height: min(64svh, 660px); }
 .gallery-full-image { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px; }
@@ -227,6 +227,27 @@ body:has(.gallery-dialog[open]) { overflow: hidden; }
 .step-card-complete { grid-template-columns: clamp(44px, 9vw, 150px) minmax(0, 1fr); }
 .step-card-complete p { max-width: 72ch; }
 .step-card .download-button:focus-visible { outline-color: var(--ink); }
+.server-login-dialog {
+  width: min(460px, calc(100% - 32px)); max-height: calc(100svh - 32px);
+  padding: clamp(20px, 5vw, 32px); border: 1px solid #d7cbbb; border-radius: 22px;
+  background: var(--paper); color: var(--ink);
+}
+.server-login-dialog::backdrop { background: #081018a8; }
+.server-login-dialog h2 { font-size: 26px; line-height: 1.2; letter-spacing: -.03em; }
+.server-login-dialog p { margin-top: 10px; line-height: 1.5; }
+.server-login-dialog form { display: grid; gap: 8px; margin-top: 20px; }
+.server-login-dialog label { font-weight: 650; }
+.server-login-dialog input {
+  width: 100%; min-height: 46px; padding: 9px 12px; border: 1px solid #857c70;
+  border-radius: 9px; background: white; color: inherit; font: inherit;
+}
+.server-login-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; margin-top: 10px; }
+.server-login-actions .download-button { border: 0; padding-inline: 16px; }
+.server-login-actions .download-button:focus-visible { outline-color: var(--ink); }
+.server-login-close {
+  min-height: 44px; padding: 0 14px; border: 0; background: transparent; color: inherit;
+  font: inherit; font-weight: 650; cursor: pointer;
+}
 .step-link { font-weight: 720; text-underline-offset: 4px; }
 .step-link span { margin-left: 4px; }
 .account-help { margin-top: 13px; }
